@@ -2,35 +2,35 @@ package ru.job4j.puzzle;
 
 public class Win {
     public static boolean check(int[][] board) {
-        boolean rsl = true;
+        boolean rsl = false;
         for (int i = 0; i < board.length; i++) {
-            if (board[i][i] == 1) {
-if ( Win.horizonta( board, i) == Win.vertical( board, i)){
-    rsl = false;
+if ( board [i][i] == 1 && (Win.horizonta(board, i) || Win.vertical( board, i))){
+    rsl = true;
+    break;
 }
-            }
-        }
+             }
         return rsl;
     }
 
-    private   static  boolean horizonta( int [][] board, int index){
+    private static boolean horizonta(int[][] board, int index) {
         boolean rst = true;
         for (int i = 0; i < board[index].length; i++) {
             if (board[index][i] == 0) {
                 rst = false;
-            break;
+                break;
             }
         }
-        return  rst;
+        return rst;
     }
-private   static  boolean vertical (int [][] board, int index){
+
+    private static boolean vertical(int[][] board, int index) {
         boolean rsl = true;
-    for (int i = 0; i <board.length ; i++) {
-        if (board[i][index] == 0) {
-            rsl = false;
-        break;
+        for (int i = 0; i < board.length; i++) {
+            if (board[i][index] == 0) {
+                rsl = false;
+                break;
+            }
         }
-    }
-    return  rsl;
+        return rsl;
     }
 }
