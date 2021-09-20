@@ -35,6 +35,12 @@ assertThat(bishopBlack.way(Cell.G5), is(expert));
     }
 
     @Test
+    public  void  thenWayFalse () {
+        BishopBlack bishopBlack = new BishopBlack(Cell.C1);
+        bishopBlack.way(Cell.A1);
+    }
+
+        @Test
     public  void thenIsDiagonalC1G5True() {
     BishopBlack bishopBlack = new BishopBlack(Cell.C1);
         Assert.assertTrue(bishopBlack.isDiagonal(bishopBlack.position(), Cell.G5));
