@@ -37,11 +37,8 @@ rsl [i] = Cell.findBy(x, y);
     }
 
           public boolean isDiagonal(Cell source, Cell dest) {
-        if (Math.abs(dest.getX() - source.getX()) == Math.abs(dest.getY() - source.getY())) {
-return  true;
-        }
-        return false;
-    }
+              return Math.abs(dest.getX() - source.getX()) == Math.abs(dest.getY() - source.getY());
+          }
 
     @Override
     public Figure copy(Cell dest) {
