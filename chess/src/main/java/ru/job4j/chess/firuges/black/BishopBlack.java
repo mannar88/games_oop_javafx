@@ -26,19 +26,20 @@ throw new ImpossibleMoveException(
     Cell [] rsl = new Cell[size];
     int dx = dest.getX()>position.getX()? 1: -1;
     int dy = dest.getY() > position.getY()? 1: -1;
-    int count = 1;
+int x
+ = position.getX();
+int y = position.getY();
     for (int i = 0; i < size; i++) {
-int x = position.getX() + count * dx;
-int y = position.getY() + count * dy;
-count++;
-rsl [i] = Cell.findBy(x, y);
+        x += dx;
+        y += dy;
+        rsl [i] = Cell.findBy(x, y);
         }
     return  rsl;
     }
 
           public boolean isDiagonal(Cell source, Cell dest) {
               return Math.abs(dest.getX() - source.getX()) == Math.abs(dest.getY() - source.getY());
-          }
+    }
 
     @Override
     public Figure copy(Cell dest) {
