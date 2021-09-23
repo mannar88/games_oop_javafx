@@ -12,23 +12,25 @@ import static org.junit.Assert.assertThat;
 
 public class LogicTest {
 
-    @Test
-    public void move ()
+    @Test (expected = OccupiedCellException.class)
+    public void moveImpossibleMoveOccupiedCellException ()
             throws FigureNotFoundException, OccupiedCellException, ImpossibleMoveException {
         Logic logic = new Logic();
         logic.add(new BishopBlack(Cell.C1));
+        logic.add(new BishopWhite(Cell.E3));
         logic.move(Cell.C1, Cell.H6);
     }
 
-    @Test
-    public void moveImpossibleMoveException ()
+    @Test (expected = OccupiedCellException.class)
+    public void moveImpossibleMoveOccupiedCellException2 ()
             throws FigureNotFoundException, OccupiedCellException, ImpossibleMoveException {
         Logic logic = new Logic();
         logic.add(new BishopBlack(Cell.C1));
+        logic.add(new BishopWhite(Cell.H6));
         logic.move(Cell.C1, Cell.H6);
     }
 
-@Test
+    @Test (expected = FigureNotFoundException.class)
     public void moveFigureNotFoundException  ()
             throws FigureNotFoundException, OccupiedCellException, ImpossibleMoveException {
             Logic logic = new Logic();
@@ -36,14 +38,11 @@ public class LogicTest {
         logic.move(Cell.D2, Cell.H6);
     }
 
-    @Test
-    public void moveOccupiedCellException ()
+    @Test (expected = ImpossibleMoveException.class)
+    public void moveImpossibleMoveException ()
             throws FigureNotFoundException, OccupiedCellException, ImpossibleMoveException {
-Logic logic = new Logic();
+        Logic logic = new Logic();
     logic.add(new BishopBlack(Cell.C1));
-logic.add(new BishopWhite(Cell.E3));
 logic.move(Cell.C1, Cell.A5);
     }
-
-
     }

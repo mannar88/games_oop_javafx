@@ -2,6 +2,7 @@ package ru.job4j.chess.firuges.black;
 
 import org.junit.Assert;
 import org.junit.Test;
+import ru.job4j.chess.ImpossibleMoveException;
 import ru.job4j.chess.firuges.Cell;
 
 import static org.hamcrest.Matchers.is;
@@ -33,8 +34,8 @@ Cell[] expert = new  Cell[] {
 assertThat(bishopBlack.way(Cell.G5), is(expert));
     }
 
-    @Test
-    public  void  thenWayFalse () {
+@Test (expected = ImpossibleMoveException.class)
+            public  void  thenWayFalse () {
         BishopBlack bishopBlack = new BishopBlack(Cell.C1);
         bishopBlack.way(Cell.A1);
     }
